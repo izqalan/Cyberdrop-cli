@@ -11,10 +11,17 @@ program
   .description(pjson.description)
 
 program
-  .command('download [album link]')
+  .option('-p, --parallel', 'download album images in parallel (faster)')
+  .command('download <album>')
   .alias('d')
   .description('Download pictures from specified album')
-  .action(album =>download(album))
+  .action(album => {
+    if(program.parallel){
+      download(album, true)
+    }else{
+      download(album, false)
+    }
+  })
 
 program.on('command:*', function () {
   console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));
