@@ -1,8 +1,11 @@
 {
   "name": "cyberdrop-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "cyberdrop album downloader",
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "cyberdrop-cli": "bin/command.js"
   },
@@ -11,9 +14,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "cyberdrop"
+    "cyberdrop",
+    "cli",
+    "downloader"
   ],
-  "author": "nespi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izqalan/CyberDrop-cli"
+  },
+  "author": "izqalan",
   "license": "MIT",
   "dependencies": {
     "commander": "^5.0.0",
