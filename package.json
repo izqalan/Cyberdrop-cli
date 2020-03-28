@@ -1,5 +1,5 @@
 {
-  "name": "cyberdrop-dl",
+  "name": "cyberdrop-cli",
   "version": "0.1.0",
   "description": "cyberdrop album downloader",
   "main": "index.js",
