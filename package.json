@@ -1,7 +1,7 @@
 {
   "name": "cyberdrop-dl",
   "version": "0.0.1",
-  "description": "cyberdrop bulk downloader",
+  "description": "cyberdrop album downloader",
   "main": "index.js",
   "bin": {
     "cyberdrop-cli": "bin/command.js"
@@ -19,8 +19,6 @@
     "commander": "^5.0.0",
     "download": "^7.1.0",
     "esm": "^3.2.25",
-    "jssoup": "0.0.11",
-    "node-fetch": "^2.6.0",
     "ora": "^4.0.3",
     "x-ray": "^2.3.4"
   }

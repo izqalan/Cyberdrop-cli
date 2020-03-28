@@ -14,7 +14,7 @@ program
   .command('download [album link]')
   .alias('d')
   .description('Download pictures from specified album')
-  .action(album => download(album))
+  .action(album =>download(album))
 
 program.on('command:*', function () {
   console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));

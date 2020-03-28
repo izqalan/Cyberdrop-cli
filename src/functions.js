@@ -15,9 +15,8 @@ const spinner = ora({
 
 async function head(url){
   spinner.start();
-  links = extractLink(url)
-  downloadImage(links, url)
-  spinner.stop().clear();
+  links = await extractLink(url)
+  downloadImage(links, url).then(spinner.stop().clear())
 }
 
 // extracts all pics from album
@@ -36,11 +35,11 @@ async function downloadImage(lnks, url){
   var DOWNLOAD_DIR = path.join(process.env.HOME || process.env.USERPROFILE, 'downloads/'+title);
   for (const i in links){
     let counter = i;
+    counter++;
     download(links[i].image, DOWNLOAD_DIR).then(() => {
-      counter++;
       console.log('Downloading '+ counter +'/'+links.length)
-      console.log('done!')
     })
+    spinner.stop().clear();
   }
 }
 
