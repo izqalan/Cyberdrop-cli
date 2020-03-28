@@ -54,7 +54,7 @@ async function normalDownload(links, dir){
 
 async function downloadImage(links, url, option){
   const title = await getTitle(url);
-  var DOWNLOAD_DIR = path.join(process.env.HOME || process.env.USERPROFILE, 'downloads/'+title);
+  var DOWNLOAD_DIR = path.join(process.env.HOME || process.env.USERPROFILE, 'Downloads/'+title);
   if (option){
     parallelDownload(links, DOWNLOAD_DIR)
   }else{
