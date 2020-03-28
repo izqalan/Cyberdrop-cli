@@ -3,6 +3,8 @@ var xray = Xray()
 const download = require('download');
 var path = require('path')
 const ora = require('ora');
+const fs = require('fs')
+// import fs from 'fs';
 
 module.exports.download = head;
 
@@ -32,11 +34,20 @@ function extractLink(url) {
 }
 
 async function setPath(dest, title){
-  if(dest === '.'){
-    return path.join(process.cwd(), title);
-  }else if(dest){
-    return path.join(dest, title)
-  }else{
+  try {
+    if(dest === '.'){
+      return path.join(process.cwd(), title);
+    }else if(dest){
+      if (fs.existsSync(dest)) {
+        return path.join(dest, title)
+      }
+    throw "cannot find directory. Destination set to Downloads"
+    }else{
+      console.log(3)
+      return path.join(process.env.HOME || process.env.USERPROFILE, 'Downloads/'+title)
+    }
+  } catch (error) {
+    spinner.fail(error)
     return path.join(process.env.HOME || process.env.USERPROFILE, 'Downloads/'+title)
   }
 }
@@ -61,7 +72,7 @@ function parallelDownload(links, dir){
   // 14.64s | 10.9 MB @  110Mbps
   spinner.start('Downloading')
   for (const i in links){
-    download(links[i].image, dir).then(() => spinner.succeed('Download Finished!'))
+    download(links[i].image, dir).then(() => spinner.succeed('Image Downloaded'))
   }
 }
 
@@ -76,6 +87,6 @@ async function normalDownload(links, dir){
       spinner.text = 'Downloading '+ counter +'/'+links.length
     })
   }
-  spinner.succeed('Download Finished!').stop();
+  spinner.succeed('Album downloaded').stop();
 }
 

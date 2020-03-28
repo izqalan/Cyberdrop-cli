@@ -24,7 +24,7 @@ By default album will be stored into your local Downloads folder
 $ cyberdrop-cli d [options] <album link>
 ```
 
-use ``-t`` to specify downloaded album destination
+use ``-t <directory>`` to specify destination. ``-t .`` to specify current working directory. 
 
 ```bash
 $ cyberdrop-cli d -t <destination folder> <album link>
