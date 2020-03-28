@@ -11,7 +11,7 @@ $ npm install -g cyberdrop-cli
 ```
 ## Commands
 ```bash
-$ cyberdrop-cli d <album link>
+$ cyberdrop-cli d [options] <album link>
 ```
 album will be stored into your local download folder
 
