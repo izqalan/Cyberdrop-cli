@@ -10,3 +10,4 @@ $ npm install -g cyberdrop-cli
 ```
 $ cyberdrop-cli d <album link>
 ```
+album will be stored into your local download folder
