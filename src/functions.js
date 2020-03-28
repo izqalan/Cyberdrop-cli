@@ -3,6 +3,8 @@ var xray = Xray()
 const download = require('download');
 var path = require('path')
 const ora = require('ora');
+const fs = require('fs')
+// import fs from 'fs';
 
 module.exports.download = head;
 
@@ -12,10 +14,12 @@ const spinner = ora({
   isEnabled: true,
 });
 
-async function head(url, option){
+async function head(url, option, dir){
   spinner.start();
+  let TITLE = await getTitle(url)
+  let DOWNLOAD_DIR = await setPath(dir, TITLE)
   links = await extractLink(url)
-  downloadImage(links, url, option).then(spinner.stop().clear())
+  downloadImage(links, option, DOWNLOAD_DIR)
 }
 
 // extracts all pics from album
@@ -29,36 +33,22 @@ function extractLink(url) {
   }
 }
 
-function parallelDownload(links, dir){
-  // 14.64 s
-  for (const i in links){
-    download(links[i].image, dir).then(() => spinner.succeed('Download Finished!'))
-  }
-  spinner.start('Downloading')
-}
-
-async function normalDownload(links, dir){
-  // 32.90 s
-  for (const i in links){
-    let counter = i;
-    counter++;
-    spinner.text = 'Downloading '+ counter +'/'+links.length
-    spinner.start()
-    // remove await for parallel download (faster)
-    await download(links[i].image, dir).then(() => {
-      spinner.text = 'Downloading '+ counter +'/'+links.length
-    })
-  }
-  spinner.succeed('Download Finished!').stop();
-}
-
-async function downloadImage(links, url, option){
-  const title = await getTitle(url);
-  var DOWNLOAD_DIR = path.join(process.env.HOME || process.env.USERPROFILE, 'downloads/'+title);
-  if (option){
-    parallelDownload(links, DOWNLOAD_DIR)
-  }else{
-   normalDownload(links, DOWNLOAD_DIR)
+async function setPath(dest, title){
+  try {
+    if(dest === '.'){
+      return path.join(process.cwd(), title);
+    }else if(dest){
+      if (fs.existsSync(dest)) {
+        return path.join(dest, title)
+      }
+    throw "cannot find directory. Destination set to Downloads"
+    }else{
+      console.log(3)
+      return path.join(process.env.HOME || process.env.USERPROFILE, 'Downloads/'+title)
+    }
+  } catch (error) {
+    spinner.fail(error)
+    return path.join(process.env.HOME || process.env.USERPROFILE, 'Downloads/'+title)
   }
 }
 
@@ -69,3 +59,34 @@ function getTitle(url){
     console.log(error)
   }
 }
+
+async function downloadImage(links, option, dir){
+  if (option){
+    parallelDownload(links, dir)
+  }else{
+   normalDownload(links, dir)
+  }
+}
+
+function parallelDownload(links, dir){
+  // 14.64s | 10.9 MB @  110Mbps
+  spinner.start('Downloading')
+  for (const i in links){
+    download(links[i].image, dir).then(() => spinner.succeed('Image Downloaded'))
+  }
+}
+
+async function normalDownload(links, dir){
+  // 32.90s | 10.9 MB @  110Mbps
+  for (const i in links){
+    let counter = i;
+    counter++;
+    spinner.text = 'Downloading '+ counter +'/'+links.length
+    spinner.start()
+    await download(links[i].image, dir).then(() => {
+      spinner.text = 'Downloading '+ counter +'/'+links.length
+    })
+  }
+  spinner.succeed('Album downloaded').stop();
+}
+

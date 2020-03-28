@@ -11,15 +11,16 @@ program
   .description(pjson.description)
 
 program
-  .option('-p, --parallel', 'download album images in parallel (faster)')
+  .option('-p, --parallel', 'Download album images in parallel (faster)')
+  .option('-t, --dest <destiation>', 'Download destination', false)
   .command('download <album>')
   .alias('d')
   .description('Download pictures from specified album')
   .action(album => {
     if(program.parallel){
-      download(album, true)
+      download(album, true, program.dest)
     }else{
-      download(album, false)
+      download(album, false, program.dest)
     }
   })
 
