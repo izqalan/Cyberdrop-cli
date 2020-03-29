@@ -12,7 +12,7 @@ program
 
 program
   .option('-p, --parallel', 'Download album images in parallel (faster)')
-  .option('-t, --dest <destiation>', 'Download destination', false)
+  .option('-o, --output <destiation>', 'Download destination', false)
   .command('download <album>')
   .alias('d')
   .description('Download pictures from specified album')

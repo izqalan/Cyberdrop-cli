@@ -14,7 +14,7 @@ $ npm install -g cyberdrop-cli
 
 ```
 -p, --parallel      Download album images in parallel (faster but prone to corruption)
--t, --dest          Downloaded album destinetion ( " . " for current directory)
+-o, --o          Downloaded album destinetion ( " . " for current directory)
 ```
 
 ## Usage
@@ -24,8 +24,8 @@ By default album will be stored into your local Downloads folder
 $ cyberdrop-cli d [options] <album link>
 ```
 
-use ``-t <directory>`` to specify destination. ``-t .`` to specify current working directory. 
+use ``-o <directory>`` to specify outpu destination. ``-o .`` to output downloaded album to current working directory. 
 
 ```bash
-$ cyberdrop-cli d -t <destination folder> <album link>
+$ cyberdrop-cli d -o <destination folder> <album link>
 ```
