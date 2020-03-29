@@ -18,9 +18,9 @@ program
   .description('Download pictures from specified album')
   .action(album => {
     if(program.parallel){
-      download(album, true, program.dest)
+      download(album, true, program.destiation)
     }else{
-      download(album, false, program.dest)
+      download(album, false, program.destiation)
     }
   })
 
