@@ -23,7 +23,7 @@
     "url": "https://github.com/izqalan/CyberDrop-cli"
   },
   "author": "izqalan",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "commander": "^5.0.0",
     "download": "^7.1.0",
