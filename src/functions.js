@@ -43,7 +43,6 @@ async function setPath(dest, title){
       }
     throw "cannot find directory. Destination set to Downloads"
     }else{
-      console.log(3)
       return path.join(process.env.HOME || process.env.USERPROFILE, 'Downloads/'+title)
     }
   } catch (error) {
