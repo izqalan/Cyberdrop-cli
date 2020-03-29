@@ -14,7 +14,7 @@ $ npm install -g cyberdrop-cli
 
 ```
 -p, --parallel      Download album images in parallel (faster but prone to corruption)
--o, --o          Downloaded album destinetion ( " . " for current directory)
+-o, --output        Downloaded album destinetion ( " . " for current directory)
 ```
 
 ## Usage
