@@ -1,6 +1,6 @@
 {
   "name": "cyberdrop-cli",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "cyberdrop album downloader",
   "main": "index.js",
   "publishConfig": {
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "cyberdrop",
@@ -23,12 +23,16 @@
     "url": "https://github.com/izqalan/CyberDrop-cli"
   },
   "author": "izqalan",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "commander": "^5.0.0",
     "download": "^7.1.0",
     "esm": "^3.2.25",
     "ora": "^4.0.3",
     "x-ray": "^2.3.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
   }
 }

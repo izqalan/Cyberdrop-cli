@@ -12,15 +12,15 @@ program
 
 program
   .option('-p, --parallel', 'Download album images in parallel (faster)')
-  .option('-t, --dest <destiation>', 'Download destination', false)
+  .option('-o, --output <destination>', 'Download destination', false)
   .command('download <album>')
   .alias('d')
   .description('Download pictures from specified album')
   .action(album => {
     if(program.parallel){
-      download(album, true, program.dest)
+      download(album, true, program.output)
     }else{
-      download(album, false, program.dest)
+      download(album, false, program.output)
     }
   })
 
