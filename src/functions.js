@@ -8,6 +8,10 @@ const fs = require('fs')
 
 module.exports.download = head;
 
+// only exporting this for tests
+module.exports.getTitle = getTitle;
+module.exports.extractLink = extractLink;
+
 const spinner = ora({
   text: 'fetching...',
   stream: process.stdout,
@@ -53,7 +57,7 @@ async function setPath(dest, title){
 
 function getTitle(url){
   try {
-    return xray(url, 'div.level-item h1', '@title');
+    return xray(url, 'div h1', '@title');
   } catch (error) {
     console.log(error)
   }
