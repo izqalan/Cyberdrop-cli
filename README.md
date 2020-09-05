@@ -28,13 +28,15 @@ help [command]              display help for command
 By default album will be stored into your local Downloads folder
 
 ```bash
-$ cyberdrop-cli g [options] <album link>
+$ cyberdrop-cli d [options] <album link> // old method
+
 $ cy get [options] <album link>
 ```
 
 use ``-o <directory>`` to specify outpu destination. ``-o .`` to output downloaded album to current working directory. 
 
 ```bash
-$ cyberdrop-cli g -o <destination folder> <album link>
+$ cyberdrop-cli d -o <destination folder> <album link> // old method
+
 $ cy get -o <destination folder> <album link>
 ```
