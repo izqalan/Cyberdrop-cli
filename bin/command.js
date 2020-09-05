@@ -13,6 +13,20 @@ program
 program
   .option('-p, --parallel', 'Download album images in parallel (faster)')
   .option('-o, --output <destination>', 'Download destination', false)
+  .command('get <album>')
+  .alias('g')
+  .description('Download pictures from specified album')
+  .action(album => {
+    if(program.parallel){
+      download(album, true, program.output)
+    }else{
+      download(album, false, program.output)
+    }
+  })
+
+program
+  .option('-p, --parallel', 'Download album images in parallel (faster)')
+  .option('-o, --output <destination>', 'Download destination', false)
   .command('download <album>')
   .alias('d')
   .description('Download pictures from specified album')
