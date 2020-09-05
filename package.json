@@ -8,7 +8,7 @@
   },
   "bin": {
     "cyberdrop-cli": "bin/command.js",
-    "cy-cli": "bin/command.js"
+    "cy": "bin/command.js"
   },
   "scripts": {
     "start": "node index.js",
