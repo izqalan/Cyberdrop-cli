@@ -1,5 +1,8 @@
 name: Test
 on:
+  schedule:
+    # Runs at 12am UTC
+    - cron: '0 0 * * *'
   pull_request:
     branches: [master, staging]
 
