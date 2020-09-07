@@ -1,5 +1,6 @@
 name: Test
 on:
+  push:
   schedule:
     # Runs at 12am UTC
     - cron: '0 0 * * *'
