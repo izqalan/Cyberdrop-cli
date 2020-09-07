@@ -1,4 +1,6 @@
 # CyberDrop Command Line Interface
+![npm status](https://github.com/izqalan/CyberDrop-cli/workflows/Node.js%20Package/badge.svg)
+![test status](https://github.com/izqalan/CyberDrop-cli/workflows/Test/badge.svg)
 > Unofficial Cyberdrop.me Command Line Interface Album Downloader 
 
 ## Setup locally
