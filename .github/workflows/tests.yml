@@ -4,7 +4,7 @@ on:
     # Runs at 12am UTC
     - cron: '0 0 * * *'
   pull_request:
-    branches: [master]
+    branches: [master, staging]
 
 jobs:
   build:

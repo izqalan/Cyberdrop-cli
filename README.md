@@ -12,22 +12,33 @@ Perform these steps to make initial setup of your work environment:
 $ npm install -g cyberdrop-cli
 ```
 
+### Commands
+```
+get | g <album>               Download pictures from specified album
+help [command]              display help for command
+```
+
 ### Options
 
 ```
 -p, --parallel      Download album images in parallel (faster but prone to corruption)
 -o, --output        Downloaded album destinetion ( " . " for current directory)
+-h, --help          Display all commands and options
 ```
 
 ## Usage
 By default album will be stored into your local Downloads folder
 
 ```bash
-$ cyberdrop-cli d [options] <album link>
+$ cyberdrop-cli d [options] <album link> // old method
+
+$ cy get [options] <album link>
 ```
 
 use ``-o <directory>`` to specify outpu destination. ``-o .`` to output downloaded album to current working directory. 
 
 ```bash
-$ cyberdrop-cli d -o <destination folder> <album link>
+$ cyberdrop-cli d -o <destination folder> <album link> // old method
+
+$ cy get -o <destination folder> <album link>
 ```

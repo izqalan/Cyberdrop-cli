@@ -6,6 +6,7 @@ describe('Get album title', () => {
   let title;
   before(async () => {
     title = await getTitle(TEST_URL);
+    assert.equal(title, title);
   })
   it('should find the title', () => {
     assert.exists(title);
