@@ -1,7 +1,10 @@
 # CyberDrop Command Line Interface
 ![npm status](https://github.com/izqalan/CyberDrop-cli/workflows/Node.js%20Package/badge.svg)
 ![test status](https://github.com/izqalan/CyberDrop-cli/workflows/Test/badge.svg)
-> Unofficial Cyberdrop.me Command Line Interface Album Downloader 
+> Unofficial Cyberdrop.me Command Line Interface Album Downloader
+
+## GUI Album Downloader
+If you prefer gui downloader, I wrote a simple C# program for windows [here](https://github.com/izqalan/cy-client/releases). Just download the `.zip` and run the installer.
 
 ## Setup locally
 Perform these steps to make initial setup of your work environment:
